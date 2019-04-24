@@ -13,6 +13,7 @@ public class Agearyn extends JavaPlugin {
     @Override
     public void onEnable(){
         loadEvents();
+        //A
         this.recipes = new Recipes(this);
         this.ticks = new Ticks(this);
         MessageUtils.console("&f[&aAgearyn&f] Loading complete.");
