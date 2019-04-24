@@ -1,0 +1,7 @@
+name: Agearyn
+version: 1.0
+main: me.voidless.core.Agearyn
+description: Main functions of Agearyn.
+author: invaliduuid
+api-version: 1.13
+depend: [VoidLib, AgearynCore]

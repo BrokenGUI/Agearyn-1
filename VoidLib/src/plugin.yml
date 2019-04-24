@@ -1,0 +1,6 @@
+name: VoidLib
+version: 1.0
+main: me.voidless.voidlib.VoidLib
+description: Void library.
+author: invaliduuid
+api-version: 1.13
