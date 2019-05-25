@@ -1,6 +1,7 @@
 package me.voidless.core.user;
 
 import me.voidless.core.AgearynCore;
+import me.voidless.core.groups.Group;
 import me.voidless.core.mongo.MongoHandler;
 import me.voidless.core.user.user.User;
 
@@ -18,5 +19,9 @@ public class UserAPI {
 
     public static User getUser(final UUID uuid){
         return getPlugin().getUserManager().getUser(uuid);
+    }
+
+    public static Group getGroup(final User user) {
+        return getPlugin().getGroupManager().getGroup(user.group);
     }
 }

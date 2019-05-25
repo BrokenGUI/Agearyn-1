@@ -1,5 +1,6 @@
 package me.voidless.core;
 
+import me.voidless.core.groups.GroupManager;
 import me.voidless.core.mongo.MongoHandler;
 import me.voidless.core.user.handler.PlayerHandler;
 import me.voidless.core.user.manager.UserManager;
@@ -12,11 +13,13 @@ public class AgearynCore extends JavaPlugin {
 
     private MongoHandler mongoHandler;
     private UserManager userManager;
+    private GroupManager groupManager;
 
     @Override
     public void onEnable(){
         this.mongoHandler = new MongoHandler().connect(this);
         this.userManager = new UserManager(this);
+        this.groupManager = new GroupManager(this);
         loadEvents();
         MessageUtils.console("&f[&aAgearyn &bcore&f] Loading complete.");
     }
@@ -25,6 +28,8 @@ public class AgearynCore extends JavaPlugin {
     public void onDisable(){
         this.mongoHandler.saveUri();
         this.userManager.saveUsers();
+        this.groupManager.updateAll();
+        this.groupManager.saveSync();
     }
 
     private void loadEvents(){
@@ -38,6 +43,10 @@ public class AgearynCore extends JavaPlugin {
 
     public UserManager getUserManager() {
         return userManager;
+    }
+
+    public GroupManager getGroupManager() {
+        return groupManager;
     }
 
     public void fixHandler(){

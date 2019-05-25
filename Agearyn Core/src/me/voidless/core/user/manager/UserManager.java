@@ -17,9 +17,9 @@ public class UserManager {
     public HashMap<UUID, User> online;
     public HashMap<UUID, User> offline;
 
-    public UserManager(final AgearynCore agearyn){
+    public UserManager(final AgearynCore agearynCore){
         this.names = new HashMap<>();
-        this.userHandler = new UserHandler(agearyn);
+        this.userHandler = new UserHandler(agearynCore);
         this.online = new HashMap<>();
         this.offline = new HashMap<>();
         clearOffline();
